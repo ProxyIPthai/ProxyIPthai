@@ -2,6 +2,7 @@ import { createWebHistory, createRouter } from "vue-router";
 import Home from "../pages/index.vue";
 import WhatIP from "../pages/subpage/index.vue"
 import Vpn from "../pages/subpage/vpnSproxy.vue"
+import Pagages from "../pages/subpage/pagages.vue"
 
 const routes = [
   {
@@ -26,6 +27,14 @@ const routes = [
     component: Vpn,
     meta: {
       title: "VPN และ Proxy แตกต่างกันอย่างไร?"
+    }
+  },
+  {
+    path: "/Pagages",
+    name: "Pagages",
+    component: Pagages,
+    meta: {
+      title: "Proxy IP Thai : ราคาเริ่มต้น"
     }
   },
 

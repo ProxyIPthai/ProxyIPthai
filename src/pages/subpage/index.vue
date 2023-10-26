@@ -329,7 +329,7 @@
             <div class="col-span-6 text-[32px] font-bold">
               บทความที่เกี่ยวข้อง
             </div>
-            <router-link to="VPNvsPROXY" class="col-span-2">
+            <router-link to="VPNvsPROXY" class="col-span-6 md:col-span-2">
               <div class="bg-white rounded-md">
                 <img
                   src="../../assets/img/12.png"
