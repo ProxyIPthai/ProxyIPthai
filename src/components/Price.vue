@@ -1,7 +1,7 @@
 <template>
-        <div class="grid grid-cols-6 gap-6 w-full max-w-5xl backdrop-blur-md bg-black/20 p-10 rounded-md">
-            <p class="col-span-6 text-[38px] text-[#38B6FF] drop-shadow-md">ราคาแพ็คโปรโมชั่น</p>
-            <div class="col-span-2 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10">
+        <div class="grid grid-cols-6 gap-6 w-full md:max-w-5xl backdrop-blur-md  rounded-md">
+            <p class="col-span-6 text-[38px] text-[#38B6FF] drop-shadow-md text-center md:text-left">ราคาแพ็คโปรโมชั่น</p>
+            <div class="md:md:col-span-2 col-span-6  bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10 ">
                 <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">ราคาเริ่มต้น</p>
                 <ul class="list-disc pl-5 text-[18px] font-semibold drop-shadow-md mt-10 text-[#7c97a8]">
                     <li>
@@ -28,8 +28,8 @@
                 </a>
             </div>
 
-            <div class="col-span-2 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10">
-                <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">ประหยัดลง 20%</p>
+            <div class="md:col-span-2 col-span-6  bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10">
+                <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">ประหยัดลง 12.5%</p>
                 <ul class="list-disc pl-5 text-[18px] font-semibold drop-shadow-md mt-10 text-[#7c97a8]">
                     <li>
                         <p>PROXY IP THAI </p>
@@ -56,8 +56,8 @@
             </div>
 
 
-            <div class="col-span-2 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10">
-                <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">ประหยัดลง 30%</p>
+            <div class="md:col-span-2 col-span-6  bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10">
+                <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">ประหยัดลง 25%</p>
                 <ul class="list-disc pl-5 text-[18px] font-semibold drop-shadow-md mt-10 text-[#7c97a8]">
                     <li>
                         <p>PROXY IP THAI </p>
