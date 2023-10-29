@@ -3,6 +3,8 @@ import Home from "../pages/index.vue";
 import WhatIP from "../pages/subpage/index.vue"
 import Vpn from "../pages/subpage/vpnSproxy.vue"
 import Pagages from "../pages/subpage/pagages.vue"
+import Register from "../pages/login/register_login.vue"
+// import Login from "../pages/login/login.vue"
 
 const routes = [
   {
@@ -38,6 +40,24 @@ const routes = [
     }
   },
 
+  {
+    path: "/register",
+    name: "register",
+    component: Register,
+    meta: {
+      title: "Proxy IP Thai : สมัครสมาชิก"
+    }
+  },
+
+  // {
+  //   path: "/login",
+  //   name: "login",
+  //   component: Login,
+  //   meta: {
+  //     title: "Proxy IP Thai : เข้าสู่ระบบ"
+  //   }
+  // },
+
 ];
 
 const router = createRouter({
@@ -46,8 +66,13 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) =>{
-  document.title = `${to.meta.title}`;
-  next();
+  if (to.meta.requiresAuth) {
+    console.log("กรูณาเข้าสู่ระบบ");
+  }
+  else {
+      next();
+  }
+
 })
 
 export default router;

@@ -20,20 +20,22 @@
           <div
             class="flex justify-start items-center space-x-5 border-b-[1px] pb-5"
           >
-            <a href="">
+            <a href="https://lin.ee/Fgv79qk">
               <p
                 class="bg-[#38B6FF] p-3 px-10 text-center rounded-full drop-shadow-md mt-5 text-white hover:bg-white hover:text-black"
               >
                 สั่งซื้อ
               </p>
             </a>
-            <a href="">
-              <p
-                class="bg-transparent border-[1px] border-[#38B6FF] p-3 px-10 text-center rounded-full drop-shadow-md mt-5 hover:bg-[#38B6FF] hover:text-white"
-              >
-                สมัครสมาชิก
-              </p>
-            </a>
+            <router-link to="register">
+              <a href="https://lin.ee/Fgv79qk">
+                <p
+                  class="bg-transparent border-[1px] border-[#38B6FF] p-3 px-10 text-center rounded-full drop-shadow-md mt-5 hover:bg-[#38B6FF] hover:text-white"
+                >
+                  สมัครสมาชิก
+                </p>
+              </a>
+            </router-link>
           </div>
           <ul class="pt-5">
             <li class="flex items-center">
