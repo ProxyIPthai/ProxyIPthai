@@ -139,7 +139,11 @@ async function login() {
   } else {
     status.value = 200;
     console.log(status.value);
-    seeCurrentUser;
+
+    setTimeout(() => {
+      refreshPage();
+    }, 3000);
+    console.log(setTimeout());
   }
 }
 </script>

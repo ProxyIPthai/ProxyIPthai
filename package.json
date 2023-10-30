@@ -12,6 +12,7 @@
     "@headlessui/vue": "^1.7.16",
     "@heroicons/vue": "^2.0.18",
     "@supabase/supabase-js": "^2.38.4",
+    "axios": "^1.6.0",
     "flowbite": "^1.8.1",
     "posthog-js": "^1.87.2",
     "universal-cookie": "^6.1.1",

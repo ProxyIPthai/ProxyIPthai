@@ -133,13 +133,38 @@
       </div>
     </div>
 
-    <div class="mt-40">
+    <div class="my-40">
       <Price id="Price" />
+    </div>
+    <p class="text-[32px] font-bold drop-shadow-md">บทความที่เกี่ยวข้อง</p>
+    <div class="border-y-[2px] w-full grid grid-cols-6 gap-4">
+      <Card />
     </div>
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+import axios from "axios";
+
 import Header from "../components/Header.vue";
 import Price from "../components/Price.vue";
+import Card from "../components/Card.vue";
+
+const data = ref(null);
+const loading = ref(true);
+const error = ref(null);
+
+// onMounted(async () => {
+//   try {
+//     const response = await axios.get(
+//       "https://newsdata.io/api/1/news?country=th&category=technology&apikey=pub_32083dca8b2848a2ac4ac85ad169dc85166f0"
+//     );
+//   } catch (err) {
+//     error.value = "Failed to fetch data";
+//   } finally {
+//     loading.value = false;
+//     console.log("success");
+//   }
+// });
 </script>

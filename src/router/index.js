@@ -1,9 +1,11 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "../pages/index.vue";
-import WhatIP from "../pages/subpage/index.vue"
+import Article from "../pages/Card_Detail/index.vue"
 import Vpn from "../pages/subpage/vpnSproxy.vue"
 import Pagages from "../pages/subpage/pagages.vue"
-import Register from "../pages/login/register_login.vue"
+import CardDetail from "../pages/Card_Detail/detail.vue"
+import Card from "../components/Card.vue"
+// import Register from "../pages/login/register_login.vue"
 // import Login from "../pages/login/login.vue"
 
 const routes = [
@@ -16,9 +18,9 @@ const routes = [
     }
   },
   {
-    path: "/WhatProxy",
-    name: "WhatProxyIP",
-    component: WhatIP,
+    path: "/Article",
+    name: "Article",
+    component: Article,
     meta: {
       title: "Proxy คืออะไร ?"
     }
@@ -37,17 +39,21 @@ const routes = [
     component: Pagages,
     meta: {
       title: "Proxy IP Thai : ราคาเริ่มต้น"
-    }
+    },
+    
   },
 
-  {
-    path: "/register",
-    name: "register",
-    component: Register,
-    meta: {
-      title: "Proxy IP Thai : สมัครสมาชิก"
-    }
-  },
+  { path: '/card/:id', component: CardDetail, props: true },
+  { path: '/', component: Card },
+
+  // {
+  //   path: "/register",
+  //   name: "register",
+  //   component: Register,
+  //   meta: {
+  //     title: "Proxy IP Thai : สมัครสมาชิก"
+  //   }
+  // },
 
   // {
   //   path: "/login",
