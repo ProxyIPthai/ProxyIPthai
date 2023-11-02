@@ -58,6 +58,16 @@
                         active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                         'block px-4 py-2 text-sm',
                       ]"
+                      >แอดมิน</a
+                    >
+                  </MenuItem>
+                  <MenuItem v-slot="{ active }">
+                    <a
+                      href="#"
+                      :class="[
+                        active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      ]"
                       >ตั้งค่าโปรไฟล์</a
                     >
                   </MenuItem>
@@ -89,11 +99,11 @@
           </Menu>
         </div>
         <Menu v-else="dataUser == null">
-          <div class="space-x-5">
+          <div class="md:space-x-5 flex items-center">
             <button
               @click="modelRegis"
               type="button"
-              class="text-white bg-[#38B6FF] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="text-white text-[12px] md:text-[14px] bg-[#38B6FF] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-1 md:px-4 md:py-3 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               สมัครสมาชิก
             </button>
@@ -101,12 +111,12 @@
             <button
               @click="modelLogin"
               type="button"
-              class="text-white bg-gray-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-3 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              class="text-white text-[12px] md:text-[14px] bg-gray-400 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm p-1 md:px-4 md:py-3 text-center mr-3 md:mr-0 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               เข้าสู่ระบบ
             </button>
-          </div></Menu
-        >
+          </div>
+        </Menu>
 
         <button
           data-collapse-toggle="navbar-sticky"
@@ -214,7 +224,7 @@ onMounted(() => {
 
 async function seeCurrentUser() {
   const localUser = await supabase.auth.getSession();
-  dataUser.value = localUser.data.session.user.user_metadata.name;
+  dataUser.value = localUser.data.session.user.user_metadata.full_name;
   getEmail.value = localUser.data.session.user.email;
 }
 

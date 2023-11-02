@@ -6,7 +6,7 @@
     >
       <div
         v-if="status"
-        class="space-y-5 bg-white p-[30px] rounded-md drop-shadow-md relative"
+        class="space-y-5 bg-white p-[30px] max-w-xl mx-[20px] rounded-md drop-shadow-md relative"
       >
         <img
           @click="$emit('close-model')"
@@ -14,9 +14,14 @@
           alt=""
           class="h-7 absolute top-2 right-3 hover:cursor-pointer"
         />
-        <h1 class="text-[26px] font-bold text-center drop-shadow-md">
-          สมัครสมาชิกสำเร็จ
+        <h1 class="md:text-[26px] font-bold text-center drop-shadow-md">
+          ขอบคุณสำหรับการเข้าร่วมเป็นสมาชิก
+          โปรดยืนยันตัวตนให้เสร็จเพิ่อเริ่มการใช้งาน
         </h1>
+        <div class="flex-col flex justify-center items-center text-gray-500">
+          <p>เราได้ส่งอีเมลยืนยันไปที่ {{ email }}</p>
+          <p>เปิดอีเมลและยืนยันบัญชีของคุณ!</p>
+        </div>
 
         <div class="flex-col flex justify-center">
           <button
@@ -81,34 +86,19 @@
               class="w-full bg-gray-200 outline-none rounded-md border border-white"
             />
           </div>
-          <div class="col-span-6 w-full">
-            <label for="pass">ยืนยันรหัสผ่าน</label>
-            <input
-              v-model="enter_password"
-              name="pass"
-              type="password"
-              class="w-full bg-gray-200 outline-none rounded-md border border-white"
-            />
-          </div>
         </div>
         <div class="flex-col flex justify-center">
           <button
-            class="bg-blue-600 p-3 px-10 rounded-md text-white hover:bg-blue-700"
+            class="bg-blue-600 p-3 px-10 rounded-md text-white hover:bg-blue-700 flex-col flex justify-center items-center"
             @click="createAccount"
           >
-            สมัครสมาชิก
-          </button>
-          <!-- <button @click="login">Login</button>
-          <button @click="seeCurrentUser">See user</button>
-          <button @click="logout">Logout</button> -->
-        </div>
-
-        <div class="flex-col flex justify-center">
-          <button
-            class="bg-blue-600 p-3 px-10 rounded-md text-white hover:bg-blue-700"
-            @click="signInWithFacebook"
-          >
-            facebook
+            <img
+              v-if="loading == true"
+              src="../assets/img/loading.gif"
+              alt=""
+              class="h-[20px]"
+            />
+            <p v-else="loading">สมัครสมาชิก</p>
           </button>
           <!-- <button @click="login">Login</button>
           <button @click="seeCurrentUser">See user</button>
@@ -120,7 +110,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { supabase } from "../lib/supabaseClient";
 
 defineEmits(["close-model"]);
@@ -149,13 +139,16 @@ const phonnumber = ref("");
 const status = ref("");
 
 async function createAccount() {
+  loading.value = true;
   const { data, error } = await supabase.auth.signUp({
     email: email.value,
     password: password.value,
+
     options: {
       data: {
-        name: name.value,
-        tel: phonnumber.value,
+        full_name: name.value,
+        phone: phonnumber.value,
+        updated_at: new Date(),
       },
     },
   });
@@ -163,6 +156,9 @@ async function createAccount() {
     console.log(error);
   } else {
     console.log(data);
+    status.value = 100;
+    console.log(status.value);
+    loading.value = false;
   }
 }
 
@@ -170,5 +166,10 @@ async function signInWithFacebook() {
   const { data, error } = await supabase.auth.signInWithOAuth({
     provider: "facebook",
   });
+}
+
+function isNameValid() {
+  // Add your validation logic here (e.g., check if the name is not empty)
+  return name.value.trim() == "";
 }
 </script>

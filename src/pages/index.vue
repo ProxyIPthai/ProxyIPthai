@@ -1,8 +1,17 @@
 <template>
-  <Header />
-
+  <video
+    class="absolute top-0 h-screen left-0 right-0 object-cover w-full -z-0 mt-[70px]"
+    autoplay
+    loop
+    muted
+    src="../assets/img/bg.mp4"
+  ></video>
+  <p
+    class="bg-gradient-to-r from-black md:via-transparent h-screen w-full absolute top-0 mt-[70px]"
+  ></p>
+  <Header class="z-0 mt-20" />
   <div
-    class="max-w-screen-xl pb-20 flex-col flex justify-center items-center w-full mt-5 px-[20px]"
+    class="max-w-screen-xl pb-20 flex-col flex justify-center items-center w-full mt-20 px-[20px] relative"
   >
     <h1 class="text-[32px] font-semibold drop-shadow-md text-center">
       ใช้งานง่าย พร้อมทีมซัพพอร์ตตลอดการใช้งาน
@@ -63,15 +72,11 @@
         class="md:col-span-3 col-span-6 relative border-b-[1px] md:border-b-[0px] border-gray-300 pb-5"
       >
         <img
-          src="../assets/img/map.png"
+          src="../assets/img/map.gif"
           alt=""
           class="max-h-[350px] rounded-lg drop-shadow-md"
         />
-        <img
-          src="../assets/img/pin.png"
-          alt=""
-          class="h-8 absolute right-40 top-[150px]"
-        />
+       
       </div>
 
       <div class="md:col-span-3 col-span-6 relative md:mt-20">

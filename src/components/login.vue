@@ -139,11 +139,12 @@ async function login() {
   } else {
     status.value = 200;
     console.log(status.value);
+    console.log(data);
 
-    setTimeout(() => {
-      refreshPage();
-    }, 3000);
-    console.log(setTimeout());
+    // setTimeout(() => {
+    //   refreshPage();
+    // }, 3000);
+    // console.log(setTimeout());
   }
 }
 </script>

@@ -8,7 +8,7 @@
       ราคาแพ็คโปรโมชั่น
     </p>
     <div
-      class="md:md:col-span-2 col-span-6 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10"
+      class="md:md:col-span-2 col-span-6 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10 m-4"
     >
       <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">
         ราคาเริ่มต้น
@@ -43,7 +43,7 @@
     </div>
 
     <div
-      class="md:col-span-2 col-span-6 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10"
+      class="md:col-span-2 col-span-6 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10 border-4 border-[#38B6FF]"
     >
       <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">
         ประหยัดลง 12.5%
@@ -78,7 +78,7 @@
     </div>
 
     <div
-      class="md:col-span-2 col-span-6 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10"
+      class="md:col-span-2 col-span-6 bg-white py-5 rounded-md drop-shadow-md flex-col flex justify-start p-10 border-4 border-[#38B6FF]"
     >
       <p class="text-left text-[32px] font-bold drop-shadow-md text-[#38B6FF]">
         ประหยัดลง 25%
