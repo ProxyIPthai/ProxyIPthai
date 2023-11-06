@@ -76,7 +76,6 @@
           alt=""
           class="max-h-[350px] rounded-lg drop-shadow-md"
         />
-       
       </div>
 
       <div class="md:col-span-3 col-span-6 relative md:mt-20">
@@ -138,7 +137,8 @@
       </div>
     </div>
 
-    <div class="my-40">
+    <div class="my-20">
+      <p class="text-[32px] font-bold drop-shadow-md mb-10">ราคาโปรโมชั่น</p>
       <Price id="Price" />
     </div>
     <p class="text-[32px] font-bold drop-shadow-md">บทความที่เกี่ยวข้อง</p>

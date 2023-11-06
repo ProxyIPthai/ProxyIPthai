@@ -1,5 +1,5 @@
 <template>
-  <div class="py-52 h-auto">
+  <div class="py-20 h-screen flex justify-center items-center">
     <Price />
   </div>
 </template>
