@@ -5,5 +5,11 @@
 </template>
 
 <script setup>
+import { ref } from "vue";
+
 import Price from "../../components/Price.vue";
+
+const modalPushoder = ref(false);
+
+
 </script>

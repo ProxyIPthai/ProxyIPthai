@@ -37,6 +37,11 @@ import { RouterLink } from 'vue-router';
             class="h-52 drop-shadow-md"
           />
         </div>
+        <button
+          class="w-full rounded-xl bg-white px-4 py-3 text-[22px] font-semibold text-black"
+        >
+          สั่งซื้อ
+        </button>
       </div>
       <div
         class="group flex min-h-[572px] max-w-[360px] flex-col flex-wrap rounded-2xl border border-[#0B0641] bg-white p-6 md:w-[384px]"
@@ -149,16 +154,43 @@ import { RouterLink } from 'vue-router';
               <span class="text-[32px] font-bold">30฿</span>
               <span>/IP</span>
             </div>
-            <router-link to="Cart">
+            <button
+              @click="modalPush"
+              class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
+            >
+              สั่งซื้อ
+            </button>
+            <!-- <router-link to="Cart">
               <button
                 class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
               >
                 สั่งซื้อ
               </button></router-link
-            >
+            > -->
           </div>
         </div>
       </div>
     </container>
+    <Add_to :modalPushoder="modalPushoder" @close-model="modalPush" />
   </div>
 </template>
+
+<script setup>
+import { ref, onMounted, computed } from "vue";
+
+import Add_to from "./Cart/Add_to.vue";
+
+const modalPushoder = ref(false);
+
+function modalPush() {
+  modalPushoder.value = !modalPushoder.value;
+  console.log(modalPushoder.value);
+}
+</script>
+
+<style>
+.holdal {
+  position: fixed;
+  inset: 0;
+}
+</style>
