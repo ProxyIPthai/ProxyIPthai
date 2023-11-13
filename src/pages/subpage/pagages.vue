@@ -1,5 +1,5 @@
 <template>
-  <div class="py-20 h-screen flex justify-center items-center">
+  <div class="py-20 min-h-screen flex justify-center items-center">
     <Price />
   </div>
 </template>
@@ -10,6 +10,4 @@ import { ref } from "vue";
 import Price from "../../components/Price.vue";
 
 const modalPushoder = ref(false);
-
-
 </script>

@@ -34,7 +34,7 @@ const Data_card = ref([]);
 async function getCountries() {
   const { data } = await supabase.from("Data_for_news").select();
   Data_card.value = data;
-  console.log(Data_card.value);
+  // console.log(Data_card.value);
 }
 
 onMounted(() => {

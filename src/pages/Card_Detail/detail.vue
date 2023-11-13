@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="status == 100"
+    v-if="isLoading"
     role="status"
     class="fixed holdal h-screen w-screen flex justify-center items-center z-0 bg-gray-100"
   >
@@ -23,141 +23,18 @@
     <span class="sr-only">Loading...</span>
   </div>
   <div
-    v-if="card"
-    class="py-40 flex-col flex justify-center items-center px-[20px] w-full"
+    v-else-if="post"
+    class="py-40 flex flex-col justify-center items-center px-[20px] w-full"
   >
-    <div
-      class="max-w-screen-xl w-full flex-col flex justify-center items-center"
-    >
+    <div class="max-w-screen-xl w-full flex justify-center items-center">
       <div
-        class="grid grid-cols-6 w-full justify-center items-center space-y-5"
-      >
-        <div
-          class="col-span-6 w-full flex-col flex justify-center items-center"
-        >
-          <p class="text-[32px] font-bold text-center">
-            {{ card.title }}
-          </p>
-          <p class="text-[20px] max-w-xl text-center">
-            {{ card.header }}
-          </p>
-        </div>
-
-        <div
-          class="col-span-6 w-full flex-col flex justify-center items-center px-[20px]"
-        >
-          <img
-            :src="card.img"
-            alt=""
-            class="rounded-md max-w-xl h-44 md:h-auto"
-          />
-        </div>
-      </div>
-
-      <div class="flex-col w-full mt-10 max-w-4xl space-y-5">
-        <div class="flex-col space-y-5">
-          <h1 class="text-[22px] font-bold">{{ card.title_1 }}</h1>
-          <img
-            :src="card.img_2"
-            alt=""
-            class="rounded-md max-w-3xl h-44 md:h-auto"
-          />
-          <p>
-            {{ card.article }}
-          </p>
-        </div>
-        <di class="space-y-5">
-          <h1 class="text-[22px] font-bold">{{ card.title_2 }}</h1>
-          <img
-            :src="card.img_3"
-            alt=""
-            class="rounded-md max-w-3xl h-44 md:h-auto"
-          />
-          <p>
-            {{ card.article_1 }}
-          </p>
-        </di>
-
-        <div class="space-y-5">
-          <h1 class="text-[22px] font-bold">
-            {{ card.title_3 }}
-          </h1>
-          <p>
-            {{ card.article_2 }}
-          </p>
-          <p>
-            {{ card.article_3 }}
-          </p>
-          <img
-            :src="card.img_4"
-            alt=""
-            class="rounded-md max-w-3xl h-44 md:h-auto"
-          />
-          <ul v-if="card.li == null" class="list-disc pl-5 space-y-5"></ul>
-          <ul v-else="card.li" class="list-disc pl-5 space-y-5">
-            <li>{{ card.li }}</li>
-            <li>{{ card.li_1 }}</li>
-            <li>{{ card.li_2 }}</li>
-            <li>{{ card.li_3 }}</li>
-            <li>{{ card.li_4 }}</li>
-            <li>{{ card.li_5 }}</li>
-          </ul>
-        </div>
-        <div>
-          <h1 class="text-[22px] font-bold">{{ card.title_4 }}</h1>
-          <p>
-            {{ card.article_4 }}
-          </p>
-        </div>
-        <div>
-          <h1 class="text-[22px] font-bold">{{ card.title_5 }}</h1>
-          <p>
-            {{ card.article_5 }}
-          </p>
-        </div>
-        <div>
-          <h1 class="text-[22px] font-bold">
-            {{ card.title_6 }}
-          </h1>
-          <h1 class="text-[22px] font-bold mt-5">
-            {{ card.title_7 }}
-          </h1>
-          <p>
-            {{ card.article_7 }}
-          </p>
-          <ul v-if="card.li_6 == null" class="list-disc pl-5 space-y-5"></ul>
-          <ul v-else="card.li" class="list-disc pl-5 space-y-5">
-            <li>{{ card.li_6 }}</li>
-            <li>{{ card.li_6 }}</li>
-            <li>{{ card.li_7 }}</li>
-            <li>{{ card.li_8 }}</li>
-            <li>{{ card.li_9 }}</li>
-            <li>{{ card.li_10 }}</li>
-          </ul>
-          <h1 class="text-[22px] font-bold mt-5">
-            {{ card.title_8 }}
-          </h1>
-          <p>
-            {{ card.article_8 }}
-          </p>
-          <h1 class="text-[22px] font-bold mt-5">
-            {{ card.title_9 }}
-          </h1>
-          <p>
-            {{ card.article_9 }}
-          </p>
-        </div>
-
-        <iframe
-          class="h-[500px] w-full rounded-md border-y-2 py-10"
-          :src="card.video"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
-      </div>
+        v-html="renderQuillContent(post.content)"
+        class="text-[22px] px-[30px]"
+      ></div>
     </div>
+  </div>
+  <div v-else>
+    <p>No post found.</p>
   </div>
 </template>
 
@@ -165,25 +42,39 @@
 import { ref, onMounted } from "vue";
 import { useRoute } from "vue-router";
 import { supabase } from "../../lib/supabaseClient";
+import { QuillDeltaToHtmlConverter } from "quill-delta-to-html";
 
 const route = useRoute();
 const cardId = route.params.id;
-const status = ref(100);
-const card = ref(null);
+const isLoading = ref(true);
+const post = ref(null);
 
 onMounted(async () => {
+  await fetchPost();
+});
+
+const fetchPost = async () => {
   const { data, error } = await supabase
-    .from("Data_for_news")
+    .from("posts")
     .select("*")
     .eq("id", cardId);
 
-  if (data && data.length > 0) {
-    card.value = data[0];
-    status.value = 200;
-    console.log(status.value);
-  } else {
+  if (error) {
+    console.error("Error fetching post:", error);
+    // Consider adding user feedback for the error
+  } else if (data && data.length > 0) {
+    post.value = data[0];
   }
-});
+
+  isLoading.value = false;
+};
+
+const renderQuillContent = (content) => {
+  if (content) {
+    return new QuillDeltaToHtmlConverter(JSON.parse(content).ops, {}).convert();
+  }
+  return "";
+};
 </script>
 
 <style scoped>

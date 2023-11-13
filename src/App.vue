@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100 flex-col flex justify-center items-center">
+  <div class="bg-white flex-col flex justify-center items-center">
     <Navbar />
     <router-view />
     <Footer />

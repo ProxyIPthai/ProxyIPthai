@@ -29,15 +29,13 @@
                 สั่งซื้อ
               </p>
             </a>
-            <router-link to="register">
-              <a href="https://lin.ee/Fgv79qk">
-                <p
-                  class="bg-transparent text-white border-[1px] border-[#38B6FF] p-3 px-10 text-center rounded-full drop-shadow-md mt-5 hover:bg-[#38B6FF] hover:text-white"
-                >
-                  สมัครสมาชิก
-                </p>
-              </a>
-            </router-link>
+            <a href="https://lin.ee/Fgv79qk">
+              <p
+                class="bg-transparent text-white border-[1px] border-[#38B6FF] p-3 px-10 text-center rounded-full drop-shadow-md mt-5 hover:bg-[#38B6FF] hover:text-white"
+              >
+                ติดต่อสอบถาม
+              </p>
+            </a>
           </div>
           <ul class="pt-5 text-white">
             <li class="flex items-center">

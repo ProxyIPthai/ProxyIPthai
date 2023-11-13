@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("node_modules/@egjs/vue3-flicking/dist/flicking.css");
+@import url("node_modules/@egjs/vue3-flicking/dist/flicking-inline.css");
+
 .btn {
     border-radius: 100%;
     background-color: #38B6FF;

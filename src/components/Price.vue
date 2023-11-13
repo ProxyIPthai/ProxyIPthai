@@ -1,11 +1,11 @@
 import { RouterLink } from 'vue-router';
 <template>
   <div class="h-auto">
-    <container
-      class="top-0 flex w-full flex-col items-center justify-center gap-6 py-8 lg:flex-row lg:bg-transparent px-5 lg:py-0 xl:px-0"
+    <div
+      class="grid grid-cols-6 w-full flex-col items-center justify-center gap-6 py-8 lg:flex-row"
     >
       <div
-        class="group relative flex min-h-[572px] max-w-[360px] flex-col flex-wrap overflow-hidden rounded-2xl bg-[#38B6FF] p-6 md:w-[384px]"
+        class="group col-span-6 md:col-span-2 relative flex min-h-[572px] max-w-[360px] flex-col flex-wrap overflow-hidden rounded-2xl bg-[#38B6FF] p-6 md:w-[384px]"
       >
         <div class="text-start text-white">
           <span class="text-[32px] font-light">ประหยัดมากขึ้น</span>
@@ -37,14 +37,16 @@ import { RouterLink } from 'vue-router';
             class="h-52 drop-shadow-md"
           />
         </div>
-        <button
-          class="w-full rounded-xl bg-white px-4 py-3 text-[22px] font-semibold text-black"
+        <a href="https://lin.ee/Fgv79qk">
+          <button
+            class="w-full rounded-xl bg-white px-4 py-3 text-[22px] font-semibold text-black"
+          >
+            สั่งซื้อ
+          </button></a
         >
-          สั่งซื้อ
-        </button>
       </div>
       <div
-        class="group flex min-h-[572px] max-w-[360px] flex-col flex-wrap rounded-2xl border border-[#0B0641] bg-white p-6 md:w-[384px]"
+        class="group col-span-6 md:col-span-2 flex min-h-[572px] max-w-[360px] flex-col flex-wrap rounded-2xl border border-[#0B0641] bg-white p-6 md:w-[384px]"
       >
         <div class="flex-row items-center gap-5">
           <span class="text-3xl font-bold">ราคาพิเศษ</span>
@@ -94,17 +96,20 @@ import { RouterLink } from 'vue-router';
               <span class="text-[32px] font-bold">35฿</span>
               <span>/IP</span>
             </div>
-            <button
-              class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
-            >
-              สั่งซื้อ
-            </button>
+            <a href="https://lin.ee/Fgv79qk">
+              <button
+                @click="modalPush"
+                class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
+              >
+                สั่งซื้อ
+              </button>
+            </a>
           </div>
         </div>
       </div>
 
       <div
-        class="group flex min-h-[572px] max-w-[360px] flex-col flex-wrap rounded-2xl border border-[#0B0641] bg-white p-6 md:w-[384px]"
+        class="group col-span-6 md:col-span-2 flex min-h-[572px] max-w-[360px] flex-col flex-wrap rounded-2xl border border-[#0B0641] bg-white p-6 md:w-[384px]"
       >
         <div class="flex-row items-center gap-5">
           <span class="text-3xl font-bold">ราคาพิเศษ</span>
@@ -154,12 +159,15 @@ import { RouterLink } from 'vue-router';
               <span class="text-[32px] font-bold">30฿</span>
               <span>/IP</span>
             </div>
-            <button
-              @click="modalPush"
-              class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
-            >
-              สั่งซื้อ
-            </button>
+            <a href="https://lin.ee/Fgv79qk">
+              <button
+                @click="modalPush"
+                class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
+              >
+                สั่งซื้อ
+              </button>
+            </a>
+
             <!-- <router-link to="Cart">
               <button
                 class="w-full rounded-xl bg-[#38B6FF] px-4 py-3 text-[22px] font-semibold text-white"
@@ -170,8 +178,8 @@ import { RouterLink } from 'vue-router';
           </div>
         </div>
       </div>
-    </container>
-    <Add_to :modalPushoder="modalPushoder" @close-model="modalPush" />
+    </div>
+    <!-- <Add_to :modalPushoder="modalPushoder" @close-model="modalPush" /> -->
   </div>
 </template>
 
