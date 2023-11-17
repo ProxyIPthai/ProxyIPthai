@@ -1,8 +1,6 @@
 <template>
   <!-- <Loading v-if="(status = 100)" /> -->
-  <div
-    class="py-20 flex justify-center items-center w-full px-[30px] min-h-screen"
-  >
+  <div class="py-20 flex justify-center w-full px-[30px] mt-20 min-h-screen">
     <div class="max-w-screen-xl">
       <p class="text-[32px] font-bold drop-shadow-md">บทความทั้งหมด</p>
       <div class="grid grid-cols-8 gap-4">
