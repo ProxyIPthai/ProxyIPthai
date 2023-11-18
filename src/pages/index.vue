@@ -102,7 +102,7 @@
         >
           <img src="../assets/img/barnd/ios.png" alt="" class="h-10" />
           <img src="../assets/img/barnd/and.png" alt="" class="h-10" />
-          <img src="../assets/img/barnd/win.png" alt="" class="h-10" />
+          <img src="../assets/img/barnd/Win.png" alt="" class="h-10" />
           <img src="../assets/img/barnd/mac.png" alt="" class="h-8" />
         </div>
       </div>
