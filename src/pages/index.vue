@@ -72,7 +72,7 @@
         class="md:col-span-3 col-span-6 relative border-b-[1px] md:border-b-[0px] border-gray-300 pb-5"
       >
         <img
-          src="../assets/img/map.gif"
+          src="../assets/img/Popula.png"
           alt=""
           class="max-h-[350px] rounded-lg drop-shadow-md"
         />
@@ -130,7 +130,7 @@
         class="md:col-span-3 col-span-6 relative md:mt-20 border-b-[1px] md:border-b-[0px] border-gray-300 pb-10"
       >
         <img
-          src="../assets/img/nolimit.png"
+          src="../assets/img/network_ 1.png"
           alt=""
           class="max-h-[450px] rounded-lg drop-shadow-md"
         />

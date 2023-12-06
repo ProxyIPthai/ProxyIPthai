@@ -1,7 +1,6 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Home from "../pages/index.vue";
 import Article from "../pages/Card_Detail/index.vue"
-import Vpn from "../pages/subpage/vpnSproxy.vue"
 import Pagages from "../pages/subpage/pagages.vue"
 import CardDetail from "../pages/Card_Detail/detail.vue"
 import Card from "../components/Card.vue"
@@ -25,14 +24,6 @@ const routes = [
     component: Article,
     meta: {
       title: "Proxy คืออะไร ?"
-    }
-  },
-  {
-    path: "/VPNvsPROXY",
-    name: "VPNvsPROXY",
-    component: Vpn,
-    meta: {
-      title: "VPN และ Proxy แตกต่างกันอย่างไร?"
     }
   },
   {
