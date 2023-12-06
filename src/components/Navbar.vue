@@ -165,17 +165,15 @@
               >
             </router-link>
           </li>
-          <li>
-            <router-link to="Article"
-              ><p
-                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >
-                บทความ
-              </p>
-            </router-link>
+          <li @click="navigateToArticle" class="hover:cursor-pointer">
+            <p
+              class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
+            >
+              บทความ
+            </p>
           </li>
           <li>
-            <router-link to="Pagages">
+            <router-link :to="{ name: 'Pagages' }">
               <p
                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
@@ -207,6 +205,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/vue";
 import { ChevronDownIcon } from "@heroicons/vue/20/solid";
 import { ref, onMounted, computed } from "vue";
 import { supabase } from "../lib/supabaseClient";
+import { useRouter } from "vue-router";
 
 import Register from "../components/Register.vue";
 import login from "./login.vue";
@@ -215,6 +214,16 @@ const modalAction = ref(false);
 const modalRe = ref(false);
 const dataUser = ref(null);
 const getEmail = ref("");
+
+const router = useRouter();
+
+const navigateToArticle = () => {
+  router.push("/Article");
+};
+
+const navigateToPagages = () => {
+  router.push("/Pagages");
+};
 
 function modelLogin() {
   modalAction.value = !modalAction.value;

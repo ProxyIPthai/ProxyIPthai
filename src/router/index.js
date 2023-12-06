@@ -64,7 +64,7 @@ const routes = [
   },
 
   { path: '/card/:id', component: CardDetail, props: true },
-  { path: '/', component: Card },
+  // { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFoundComponent },
 
   // {
   //   path: "/register",
